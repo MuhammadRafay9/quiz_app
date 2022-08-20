@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+
+    <div class="flip-container">
+        <div class="flipper" id="flipper">
+            
+            
+            <div class="front">
+                <h1 class="title">Register</h1>
+              
+                <form>
+
+                        <input type="text" id="fullname" placeholder="Full Name"  required minlength="3"/>
+                        <input type="email" id="email" placeholder="Email" required/>
+                        <input type="password" id="password" placeholder="Password" minlength="6"/>
+                        <input type="password" id="cpassword" placeholder="Confirm Password" minlength="6" />
+                        <input type="submit" onclick="signUp(event)" value="Sign up"/>
+                </form>
+                <a class="flipbutton" id="registerButton" href="#">Login to my account →</a>
+                <span id="error" style="color: red;"></span>
+                <span id="success" style="color:green"></span>
+            </div>
+            <div class="back">
+                <h1 class="title">Login</h1>
+                <form>
+                            <input type="email" id="lemail" placeholder="email" />
+                            <input type="password" id="lpass" placeholder="Password" />
+                            <input type="submit" onclick="logIn(event)" value="Login"/>
+                </form>
+                <a class="flipbutton" id="loginButton" href="#">Create my account →</a>
+                <span id="lerror" style="color: red;"></span>
+                <span id="lsuccess" style="color:green"></span>
+                
+            </div>
+        </div>
+        </div>
+    
+
+        <script>
+            var loginButton = document.getElementById("loginButton");
+            var registerButton = document.getElementById("registerButton");
+            let spanerror = document.querySelector('#error');
+            let spansuccess = document.querySelector('#success');
+            let lspanerror = document.querySelector('#lerror');
+            let lspansuccess = document.querySelector('#lsuccess');
+           
+           
+            loginButton.onclick = function(){
+                document.querySelector("#flipper").classList.toggle("flip");
+                spanerror.innerText = '';
+                spansuccess.innerText = '';
+                lspanerror.innerText = '';
+                lspansuccess.innerText = '';
+
+            }
+
+            registerButton.onclick = function(){
+                document.querySelector("#flipper").classList.toggle("flip");
+                spanerror.innerText = '';
+                spansuccess.innerText = '';
+                lspanerror.innerText = '';
+                lspansuccess.innerText = '';
+            }
+        </script>
+
+        <script src="./js/signup.js"></script>
+        <script src="./js/login.js"></script>
+</body>
+</html>
