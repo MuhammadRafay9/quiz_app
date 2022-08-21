@@ -21,8 +21,11 @@ quiz = JSON.parse(quiz)
 quiz = quiz[quizName];
 
 (() => {
-//   let quizName = localStorage.getItem('result' + '_' + quizName)
-    let quizName = localStorage.getItem('quizName')
+
+  
+  //   let quizName = localStorage.getItem('result' + '_' + quizName)
+  let quizName = localStorage.getItem('quizName')
+  document.querySelector('#quiz').innerText = 'Quiz App : ' + quizName.toLocaleUpperCase() ;  
 
   if (!quizName) {
     window.location.href = './result.html'
