@@ -71,11 +71,12 @@ function signUp(e)
      
      spanerror.innerText = '';
      spansuccess.innerText = 'Signup Successfully'
-
+        
      setTimeout(() => {
         spansuccess.innerText = "";
      }, 2000);
 
+     e.target.reset();
 
 }
 

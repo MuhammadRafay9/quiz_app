@@ -26,7 +26,7 @@ function logIn(e)
 
                     setTimeout(() => {
                         lspansuccess.innerText = '';
-                        window.location.href = './quiz.html'
+                        window.location.href = './dashboard.html'
                     }, 1300);
                 }
                 else

@@ -4,15 +4,65 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=., initial-scale=1.0">
-    <title>Document</title>
+    <title>Result</title>
+    <link rel="stylesheet" href="./css/result.css">
 </head>
 <body>
     
-    <h1 id="result"></h1>
+    <h3 id="quizName" style="text-align: center;"></h3>
+    <div class="progress">
+
+
+        <div class="bar" id="bar">
+            <p class="percent" id="per">0%</p>
+        </div>
+    </div>
+    <h3 id="pass" style="text-align: center;color: green;"></h3>
+    <h3 id="fail" style="text-align: center;color: red;"></h3>
 
 
 <script>
-    document.getElementById('result').innerText = localStorage.getItem('result_css')
+    // document.getElementById('result').innerText = localStorage.getItem(ss'result_css');
+
+    (()=>{
+
+
+        let quizName = localStorage.getItem('quizName');
+        localStorage.removeItem('quizName');
+
+        let loggedInUser = localStorage.getItem('loggedInUser');
+        if(!loggedInUser) window.location.href = './index.html';    
+
+
+    let result = JSON.parse(localStorage.getItem('results'))
+    let pass= document.getElementById('pass');
+    let fail= document.getElementById('fail');
+    let quiznum = result[loggedInUser][quizName];
+
+    if(quiznum >= 70 )
+    {
+        pass.innerText = "Congrat you cleared " ; 
+    }
+    else
+    {
+        fail.innerText = "sorry you did not make it"
+    }
+
+
+    document.getElementById('quizName').innerText = quizName ;
+    document.getElementById('per').innerText = quiznum + ' %' ;
+    document.getElementById('bar').style.width =  quiznum + '%' ;
+
+    
+    setTimeout(() => {
+
+    pass.innerText= '';
+    fail.innerText='';
+    
+    window.location.href = './dashboard.html'
+}, 3000);
+
+})();
 </script>
 </body>
 </html>
